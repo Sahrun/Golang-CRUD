@@ -1,0 +1,47 @@
+{{ define "Index" }}
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+	<title></title>
+</head>
+<body>
+<div class="container-fluid">
+
+ <p>Data Grid</p>
+  <div class="row">
+  	<div class="col-sm-6">
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nama User</th>
+              <th>Alamat</th>
+              <th>Pekerjaan</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{range .}}
+            <tr>
+              <td>{{.NamaUser}}</td>
+              <td>{{.Alamat}}</td>
+              <td>{{.Pekerjaan}}</td>
+              <td><a href="/Edit?IdUser={{.IdUser}}">Edit</a></td>
+              <td><a href="/Delete?IdUser={{.IdUser}}">Delete</a></td>
+            </tr>
+            {{ end }}
+          </tbody>
+        </table>
+      </div>
+  	</div>
+    <div class="col-sm-12">
+      <a href="/Input">NEW</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+{{ end }}
